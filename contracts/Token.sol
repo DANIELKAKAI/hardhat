@@ -4,7 +4,10 @@
 // It will be used by the Solidity compiler to validate its version.
 pragma solidity ^0.8.0;
 
+
 // This is the main building block for smart contracts.
+//import "hardhat/console.sol";
+
 contract Token {
     // Some string type variables to identify the token.
     string public name = "My Hardhat Token";
@@ -60,6 +63,7 @@ contract Token {
      * state, which allows us to call it without executing a transaction.
      */
     function balanceOf(address account) external view returns (uint256) {
+        //console.log(msg.sender, account);
         return balances[account];
     }
 }
