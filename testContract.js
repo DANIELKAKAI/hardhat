@@ -2,8 +2,12 @@ const { ethers } = require("ethers");
 
 const TokenABIJson = require("./artifacts/contracts/Token.sol/Token.json");
 
+require('dotenv').config();
+
+const INFURA_API_KEY = process.env.INFURA_API_KEY;
+
 // Connect to Sepolia network
-const provider = new ethers.JsonRpcProvider("https://eth-sepolia.g.alchemy.com/v2/sJW9tygbgrp-Q_hh23-C-hgKiaJsaBb7");
+const provider = new ethers.JsonRpcProvider(`https://sepolia.infura.io/v3/${INFURA_API_KEY}`);
 
 // ABI and Address of the deployed contract
 const contractABI = TokenABIJson.abi;
@@ -33,7 +37,7 @@ async function balanceOf(addr) {
 }
 
 async function transfer(to) {
-    const signer = await provider.getSigner();
+    const signer = provider.getSigner();
     console.log(signer)
     const tx = await contract.connect(signer).transfer(to, 50);
     tx.wait();
@@ -41,7 +45,7 @@ async function transfer(to) {
 }
 
 
-readFunction();
+//readFunction();
 
 //balanceOf("0x141adc0e0158B4c6886534701412da2E2b0d7fF1")
 
