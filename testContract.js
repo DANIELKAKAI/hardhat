@@ -19,6 +19,12 @@ async function readFunction() {
 
     const owner = await contract.owner();
     console.log("Owner:", owner);
+
+    const name = await contract.name();
+    console.log("Name:", name);
+
+    const symbol = await contract.symbol();
+    console.log("Symbol:", symbol);
 }
 
 async function balanceOf(addr) {
@@ -34,10 +40,11 @@ async function transfer(to) {
     console.log(balance);
 }
 
-// Call your functions
-//readFunction();
-balanceOf("0x141adc0e0158B4c6886534701412da2E2b0d7fF1")
 
-balanceOf("0x8C998Ca53F797646b6CBa17bBD191d521648E4EC")
+readFunction();
 
-transfer("0x141adc0e0158B4c6886534701412da2E2b0d7fF1")
+//balanceOf("0x141adc0e0158B4c6886534701412da2E2b0d7fF1")
+
+//balanceOf("0x8C998Ca53F797646b6CBa17bBD191d521648E4EC")
+
+//transfer("0x141adc0e0158B4c6886534701412da2E2b0d7fF1")
